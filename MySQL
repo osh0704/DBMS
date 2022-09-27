@@ -1,0 +1,66 @@
+# DB에선 테이블이 가장 중요하다 
+
+# 전체 데이터베이스 리스팅
+SHOW DATABASES;
+
+# `mysql` 데이터 베이스 선택
+USE mysql;
+
+# 테이블 리스팅
+SHOW TABLES;
+
+# `db` 테이블의 구조 확인
+DESC db;
+
+# 기존에 `board` 데이터베이스가 존재 한다면 삭제
+DROP DATABASE IF EXISTS board;
+
+# 새 데이터베이스(`board`) 생성
+CREATE DATABASE board;
+
+# 데이터베이스 추가 되었는지 확인
+SHOW DATABASES;
+
+# `board` 데이터 베이스 선택
+USE board;
+
+# 테이블 확인
+SHOW TABLES;
+
+
+# ==========================================================
+
+
+# 게시물 테이블 ('article')을 만듭니다. 컴럼(column)은 title, body
+# DB에서는 1TB, 10TB가 되게 작은용량. 왠만한 중기업, 대기업은 데이터를 억대로 사용
+# mysql 자료형은 검색하면 다 나오고 왠만하면 용량에 맞는 자료형을 써서 효율적으로 사용
+
+CREATE TABLE article (
+    # 가변성인 VARCHAR는 공간을 효율적으로 쓸 수는 있지만 길이가 계속 바뀌어 내부적으로 저장공간에 문제가 많이 생김
+    # CHAR는 1글자만 적어도 200 바이트 사용. 전화번호나 주민등록 번호 같이 고정된 값 사용할 때 좋음
+    
+    title VARCHAR(200),  # 제목은 왠만하면 글자 수가 적기 때문에 char 형으로 200자 까지 (255)가 최대
+    BODY TEXT 
+);
+
+# 잘 추가 되었는지 확인
+SHOW TABLES;
+
+# 행 하나 추가
+INSERT INTO article
+SET title = '제목1', # 다른 언어랑 다르게 대부분의 sql 에서는 문자열 나타낼때 " " 이 아닌 ' ' 사용
+BODY = '내용1';
+# 보통 sql에서 파란색 나오고 검은색 하나 나오면 줄바꿈을 해준다.
+
+# 제목 조회
+SELECT title 
+FROM article;
+
+#내용, 제목 칼럼 데이터 조회
+SELECT BODY, title
+FROM article;
+
+#모든 데이터 조회
+SELECT * 
+FROM article;
+

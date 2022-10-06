@@ -1,0 +1,47 @@
+DROP DATABASE IF EXISTS hotel;
+
+CREATE DATABASE hotel;
+
+show databases;
+
+use hotel;
+
+drop table Reservation;
+create table `Reservation` (
+    card_Id int,
+    Name VARCHAR(30),
+    reserveDate DATE,
+    roomNum int
+);
+create table `Customer`(
+  Card_ID int,
+  Name varchar(30),
+  ExitDate date,
+  RoomNum int
+);
+
+insert into `Reservation`
+set card_Id = 1,
+    Name = 'Andress',
+    reserveDate = '2023-01-12',
+    roomNum = 401;
+
+insert into `Reservation`
+set card_Id = 2,
+    Name = 'Roukel',
+    reserveDate = '2023-01-12',
+    roomNum = 401;
+
+insert into `Customer`
+set Card_ID = 1,
+    Name = 'Rost',
+    ExitDate = '2022-10-08',
+    RoomNum = 501;
+insert into `Customer`
+set Card_ID = 2,
+    Name = 'Junha',
+    ExitDate = '2022-11-05',
+    RoomNum = 502;
+
+select * from Reservation where card_Id = 2;
+

@@ -1,0 +1,82 @@
+-- 데이터베이스와 테이블 생성 후
+create database d1;
+show databases;
+use d1;
+
+create table `article`(
+  title varchar(200),
+  body text
+);
+
+-- 제목1, 내용1 데이터 추가, 조회
+insert into article value('제목1' , '내용1');
+select * from article;
+
+-- 제목2, 내용2 데이터 추가, 조회
+insert into article value('제목2', '내용2');
+select * from article;
+# 제목1 데이터를 '새로운 제목1'로 수정
+update article set title = '새로운 제목1' where body = '내용1';
+
+# 'body'가 내용 2인 것만을 조회
+select * from article where body = '내용2';
+
+# 내용2를 새로운 내용2 로 수정, 조회
+update article set body = '새로운 내용2' where body = '내용2';
+select * from article;
+
+# 데이터 삭제 (모든 데이터가 삭제..)
+delete from article;
+
+#다시
+
+# 제목1, 내용1 추가
+insert into article value ('제목1' , '내용1');
+
+# 제목2, 내용2 추가
+insert into article value ('제목2', '내용2');
+
+# 조회
+select * from article;
+
+# 제목1 인 것만 삭제
+delete from article where title = '제목1';
+
+#조회
+select * from article;
+
+-- 주키(pk)
+
+# d1 DB 선택
+use d1;
+
+# 게시물 조회
+select * from article;
+
+# article 테이블 데이터 삭제
+delete from article;
+
+# 제목3, 내용3 데이터 두개 추가
+insert into article value ('제목3', '내용3');
+
+select * from article;
+
+# 제목 3인 게물 중 두번째 것만 제목을 새제목3 으로 수정(구분 안됨)
+
+# 테이블 구조 확인
+desc article;
+
+# 테이블 구조 수정 - 칼럼 추가(ADD), 기존 칼럼 삭제 (DROP)
+# 식별용 데이터를 저장할 id 컬럼 추가
+alter table article add id int;
+
+# id 값이 NULL로 나옴 (비어있다)
+select * from article;
+
+# limit -> 위에서 n개를 잘라서 필터링
+select * from article limit 1;
+
+# 기존 데이터 중 1개만 id를 2로 변경
+
+
+

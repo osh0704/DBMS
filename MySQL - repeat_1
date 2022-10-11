@@ -1,0 +1,30 @@
+show databases;
+
+create database repeat_1;
+
+show databases;
+
+use repeat_1;
+
+create table `visitor` (
+    name varchar(30),
+    age smallint,
+    rank varchar(30),
+    id int
+);
+
+select * from `visitor`;
+
+insert into `visitor` value ('Junha', 173, 'Diamond', 1);
+
+insert into `visitor` value ('Minseung', 17, 'Red Diamond', 2);
+
+insert into `visitor` value ('Jaeha', 117, 'Iron', 3);
+
+insert into `visitor` value ('Seungwoo', 17, 'Gold', 4);
+
+insert into `visitor` value ('Seonghwan', 17, 'people', 5);
+
+select * from `visitor`;
+
+update `visitor` set name = 'JJunha' where id = 5;

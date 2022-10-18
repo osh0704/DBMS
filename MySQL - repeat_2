@@ -1,0 +1,54 @@
+# ----------------------------- CRUD
+
+show databases;
+
+create database d1;
+
+use d1;
+
+create table `article`(title varchar(30), body text);
+
+show tables;
+
+insert into `article` values('제목1', '내용1');
+insert into `article` values('제목2', '내용2');
+
+select * from `article`;
+
+update `article` set title = '뉴제목';
+
+select * from `article`;
+
+select * from `article` where body = '내용2';
+
+update `article` set body = '새로운내용2' where body = '내용2';
+
+select * from `article`;
+
+delete from `article`;
+
+select * from `article`;
+
+insert into `article`(`body`, `title`) values ('내용1', '제목1');
+
+insert into `article`(`body`, `title`) values ('내용2', '제목2');
+
+select * from article;
+
+delete from `article` where body = '내용2';
+
+select * from `article`;
+
+# ---------------------------- 주키
+
+select * from `article`;
+
+insert into `article` values('제목2', '내용2');
+
+update `article` set body = '내용1' where body = '내용2';
+
+update `article` set title = '제목1' where title = '제목2';
+
+select * from `article`;
+
+# ---------------------- 2022-10-18

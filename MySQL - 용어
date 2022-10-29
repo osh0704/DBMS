@@ -23,5 +23,9 @@
     - 조회 : select * from 테이블
     - 수정 : update 테이블 set
     - 삭제 : delete from 테이블
+    
+ DCL
+ 
+ TCL
 
 

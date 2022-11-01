@@ -1,0 +1,63 @@
+show databases;
+
+create database sc;
+
+use sc;
+
+create table `player`(
+    player_Number int,
+    player_Name varchar(50),
+    player_Position varchar(30),
+    player_TeamCode varchar(30),
+    back_Number int,
+    height smallint,
+    primary key(player_Number)
+);
+
+SELECT * FROM `player`;
+
+insert into `player` values(1, '김남일', 'DF', 'K03', 33, 177);
+insert into `player` values(2, '박지성', 'MF', 'K07', 7, 178);
+insert into `player` values(3, '이영표', 'MF', 'K02', 22, 176);
+
+SELECT * FROM `player`;
+
+create table `team`(
+    player_TeamCode varchar(30),
+    team_Name varchar(30),
+    team_area varchar(30)
+);
+
+select * from `team`;
+
+insert into `team` values('K03', '스틸러스', '포항');
+insert into `team` values('K07', '드래곤즈', '전남');
+insert into `team` values('K02', '블루윙즈', '수원');
+
+select * from `team`;
+
+select player.player_Number, player_Name, player.player_TeamCode, player_Position, back_Number, height, team_Name, team_area from `player` left join `team` on `player`.player_TeamCode = `team`.player_TeamCode;
+
+select * from `team` order by player_TeamCode desc;
+
+insert into `team` values('K03', '스틸러스', '포항');
+
+select distinct * from `team`;
+
+select distinct player_TeamCode as 팀_코드, team_Name as 팀_이름, team_area as 팀_지역 from `team` order by player_TeamCode asc;
+
+select player_Name as 선수명, height - back_Number as "키-등번호" from `player`;
+
+select * from `player`;
+
+alter table `player` add weight smallint;
+
+select * from `player`;
+
+update `player` set weight = 68 where player_Number = 1;
+update `player` set weight = 70 where player_Number = 2;
+update `player` set weight = 78 where player_Number = 3;
+
+select * from `player`;
+
+select player_Name as 선수명, round(weight / ((height / 100) * (height / 100)), 2) as 비만지수 from `player`
